@@ -1,0 +1,14 @@
+.main-content {
+  min-height: 100vh;
+  width: 100%;
+  padding-top: 70px; // Compensar header fixo
+
+  @media (min-width: 768px) {
+    padding-top: 90px;
+  }
+
+  @media (min-width: 1024px) {
+    padding-top: 100px;
+  }
+}
+

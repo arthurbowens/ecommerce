@@ -1,5 +1,121 @@
-<div class="home-container">
-  <h1>Página Inicial</h1>
-  <p>Em breve...</p>
-</div>
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-content">
+    <h1 class="hero-titulo">Óculos Store</h1>
+    <p class="hero-subtitulo">Artesanato excepcional. Design atemporal.</p>
+    <div class="hero-acoes">
+      <a routerLink="/produtos" class="botao botao-primario">Explorar Coleção</a>
+      <a href="#colecoes" class="botao botao-secundario">Ver Mais</a>
+    </div>
+  </div>
+  <div class="hero-imagem">
+    <div class="hero-overlay"></div>
+  </div>
+</section>
 
+<!-- Seção de Destaques -->
+<section class="destaques">
+  <div class="container">
+    <div class="secao-cabecalho">
+      <h2 class="secao-titulo">Destaques</h2>
+      <p class="secao-subtitulo">Seleção especial de nossos produtos mais exclusivos</p>
+    </div>
+    <div class="produtos-grid">
+      <article class="produto-card" *ngFor="let produto of produtosDestaque">
+        <a [routerLink]="['/produto', produto.id]" class="produto-link">
+          <div class="produto-imagem-container">
+            <img [src]="produto.imagem" [alt]="produto.nome" class="produto-imagem" loading="lazy">
+            <div class="produto-overlay">
+              <span class="produto-botao-ver">Ver Detalhes</span>
+            </div>
+          </div>
+          <div class="produto-info">
+            <span class="produto-categoria">{{ produto.categoria }}</span>
+            <h3 class="produto-nome">{{ produto.nome }}</h3>
+            <p class="produto-descricao">{{ produto.descricao }}</p>
+            <div class="produto-preco">{{ formatarPreco(produto.preco) }}</div>
+          </div>
+        </a>
+      </article>
+    </div>
+    <div class="secao-rodape">
+      <a routerLink="/produtos" class="botao botao-outline">Ver Todos os Produtos</a>
+    </div>
+  </div>
+</section>
+
+<!-- Seção de Coleções -->
+<section class="colecoes" id="colecoes">
+  <div class="container">
+    <div class="secao-cabecalho">
+      <h2 class="secao-titulo">Coleções</h2>
+      <p class="secao-subtitulo">Descubra nossas linhas exclusivas</p>
+    </div>
+    <div class="colecoes-grid">
+      <article class="colecao-card" *ngFor="let colecao of colecoes">
+        <a [routerLink]="colecao.link" class="colecao-link">
+          <div class="colecao-imagem-container">
+            <img [src]="colecao.imagem" [alt]="colecao.titulo" class="colecao-imagem" loading="lazy">
+            <div class="colecao-overlay">
+              <div class="colecao-conteudo">
+                <h3 class="colecao-titulo">{{ colecao.titulo }}</h3>
+                <p class="colecao-subtitulo">{{ colecao.subtitulo }}</p>
+                <span class="colecao-botao">Explorar</span>
+              </div>
+            </div>
+          </div>
+        </a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Seção de Valores -->
+<section class="valores">
+  <div class="container">
+    <div class="valores-grid">
+      <div class="valor-item">
+        <div class="valor-icone">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h3 class="valor-titulo">Artesanato Excepcional</h3>
+        <p class="valor-descricao">Cada peça é cuidadosamente elaborada com os mais altos padrões de qualidade</p>
+      </div>
+      <div class="valor-item">
+        <div class="valor-icone">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M12 6V12L16 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h3 class="valor-titulo">Entrega Rápida</h3>
+        <p class="valor-descricao">Envio expresso para todo o Brasil com rastreamento em tempo real</p>
+      </div>
+      <div class="valor-item">
+        <div class="valor-icone">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9 12L11 14L15 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h3 class="valor-titulo">Garantia Total</h3>
+        <p class="valor-descricao">Proteção completa com garantia de 2 anos e suporte especializado</p>
+      </div>
+      <div class="valor-item">
+        <div class="valor-icone">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 7H4C2.89543 7 2 7.89543 2 9V19C2 20.1046 2.89543 21 4 21H20C21.1046 21 22 20.1046 22 19V9C22 7.89543 21.1046 7 20 7Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M16 21V13C16 12.4477 15.5523 12 15 12H9C8.44772 12 8 12.4477 8 13V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M12 7V4C12 3.44772 12.4477 3 13 3H15C15.5523 3 16 3.44772 16 4V7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h3 class="valor-titulo">Atendimento Personalizado</h3>
+        <p class="valor-descricao">Consultoria especializada para encontrar o modelo perfeito para você</p>
+      </div>
+    </div>
+  </div>
+</section>
