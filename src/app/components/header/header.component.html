@@ -1,66 +1,106 @@
-<header class="header" [class.scrolled]="headerScrolled">
-  <div class="header-container">
+<header 
+  class="fixed top-0 left-0 right-0 bg-white z-[1000] transition-all duration-300 ease-out border-b border-transparent"
+  [class.scrolled]="headerScrolled"
+  [class.shadow-sm]="headerScrolled"
+  [class.border-gray-200]="headerScrolled">
+  <div class="max-w-[1600px] mx-auto px-4 md:px-8 lg:px-16 py-4 md:py-6 lg:py-8 flex items-center justify-between gap-8 lg:gap-12 relative">
     <!-- Logo -->
-    <div class="logo">
-      <a routerLink="/inicio" class="logo-link">
-        <span class="logo-text">Jeremi Oculos</span>
+    <div class="flex-shrink-0 z-10">
+      <a routerLink="/inicio" class="flex items-center transition-opacity duration-300 hover:opacity-70">
+        <span class="text-xl md:text-2xl font-light text-[#1a1a1a] tracking-wider uppercase">Jeremi Oculos</span>
       </a>
     </div>
 
     <!-- Menu Desktop -->
-    <nav class="nav-desktop" *ngIf="!buscaAberta">
-      <ul class="nav-lista">
+    <nav class="hidden md:flex flex-1 justify-center" *ngIf="!buscaAberta">
+      <ul class="flex list-none m-0 p-0 gap-8 lg:gap-16 items-center">
         <li>
-          <a routerLink="/inicio" routerLinkActive="ativo" [routerLinkActiveOptions]="{exact: true}" class="nav-link">
+          <a 
+            routerLink="/inicio" 
+            routerLinkActive="ativo" 
+            [routerLinkActiveOptions]="{exact: true}" 
+            class="nav-link relative py-2 text-[#1a1a1a] font-light text-sm tracking-wider uppercase transition-all duration-300 block after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-[#1a1a1a] after:transition-all after:duration-300 hover:after:w-full [&.ativo]:after:w-full">
             Início
           </a>
         </li>
         <li>
-          <a routerLink="/produtos" routerLinkActive="ativo" class="nav-link">
+          <a 
+            routerLink="/produtos" 
+            routerLinkActive="ativo" 
+            class="nav-link relative py-2 text-[#1a1a1a] font-light text-sm tracking-wider uppercase transition-all duration-300 block after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-[#1a1a1a] after:transition-all after:duration-300 hover:after:w-full [&.ativo]:after:w-full">
             Produtos
           </a>
         </li>
         <li>
-          <a href="#sobre" class="nav-link">Sobre</a>
+          <a 
+            href="#sobre" 
+            class="nav-link relative py-2 text-[#1a1a1a] font-light text-sm tracking-wider uppercase transition-all duration-300 block after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-[#1a1a1a] after:transition-all after:duration-300 hover:after:w-full">
+            Sobre
+          </a>
         </li>
         <li>
-          <a href="#contato" class="nav-link">Contato</a>
+          <a 
+            href="#contato" 
+            class="nav-link relative py-2 text-[#1a1a1a] font-light text-sm tracking-wider uppercase transition-all duration-300 block after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-[#1a1a1a] after:transition-all after:duration-300 hover:after:w-full">
+            Contato
+          </a>
         </li>
       </ul>
     </nav>
 
     <!-- Ações Desktop -->
-    <div class="acoes-desktop" *ngIf="!buscaAberta">
-      <button class="icone-botao busca-toggle" (click)="toggleBusca()" aria-label="Buscar">
+    <div class="hidden md:flex items-center gap-6 flex-shrink-0" *ngIf="!buscaAberta">
+      <button 
+        class="bg-transparent border-none cursor-pointer p-2 flex items-center justify-center text-[#1a1a1a] transition-all duration-300 relative w-10 h-10 hover:opacity-60" 
+        (click)="toggleBusca()" 
+        aria-label="Buscar">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </button>
-      <a routerLink="/carrinho" class="icone-botao carrinho-link" aria-label="Carrinho">
+      <a 
+        routerLink="/carrinho" 
+        class="bg-transparent border-none cursor-pointer p-2 flex items-center justify-center text-[#1a1a1a] transition-all duration-300 relative w-10 h-10 hover:opacity-60" 
+        aria-label="Carrinho">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M3 3H5L5.4 5M7 13H17L21 5H5.4M7 13L5.4 5M7 13L4.7 15.3C4.3 15.7 4.6 16.5 5.1 16.5H17M17 13V17C17 18.1 17.9 19 19 19C20.1 19 21 18.1 21 17V13M9 19.5C9.8 19.5 10.5 20.2 10.5 21C10.5 21.8 9.8 22.5 9 22.5C8.2 22.5 7.5 21.8 7.5 21C7.5 20.2 8.2 19.5 9 19.5ZM20 19.5C20.8 19.5 21.5 20.2 21.5 21C21.5 21.8 20.8 22.5 20 22.5C19.2 22.5 18.5 21.8 18.5 21C18.5 20.2 19.2 19.5 20 19.5Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
-        <span class="carrinho-badge" *ngIf="quantidadeCarrinho > 0">{{ quantidadeCarrinho }}</span>
+        <span 
+          *ngIf="quantidadeCarrinho > 0" 
+          class="absolute top-0 right-0 bg-[#1a1a1a] text-white text-[0.65rem] font-normal px-1.5 py-0.5 rounded-full min-w-[18px] h-[18px] flex items-center justify-center leading-tight">
+          {{ quantidadeCarrinho }}
+        </span>
       </a>
     </div>
 
     <!-- Busca Desktop Expandida -->
-    <div class="busca-desktop-expandida" *ngIf="buscaAberta">
-      <form class="busca-form" (submit)="realizarBusca(); $event.preventDefault()">
+    <div 
+      *ngIf="buscaAberta" 
+      class="absolute left-0 right-0 top-0 bottom-0 bg-white hidden md:flex items-center px-8 z-20">
+      <form 
+        class="relative flex items-center w-full max-w-3xl mx-auto" 
+        (submit)="realizarBusca(); $event.preventDefault()">
         <input
           type="text"
-          class="busca-input"
+          class="w-full py-3 pr-14 pl-0 border-0 border-b border-gray-200 bg-transparent text-sm font-light text-[#1a1a1a] transition-all duration-300 tracking-wide focus:outline-none focus:border-[#1a1a1a] placeholder:text-gray-400 placeholder:font-light"
           placeholder="Buscar óculos, modelos, estilos..."
           [(ngModel)]="termoBusca"
           name="busca"
           autofocus
         />
-        <button type="submit" class="busca-botao" aria-label="Buscar">
+        <button 
+          type="submit" 
+          class="absolute right-10 bg-transparent border-none cursor-pointer p-2 flex items-center justify-center text-[#1a1a1a] transition-all duration-300 hover:opacity-60" 
+          aria-label="Buscar">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </button>
-        <button type="button" class="busca-fechar" (click)="fecharBusca()" aria-label="Fechar busca">
+        <button 
+          type="button" 
+          class="absolute right-0 bg-transparent border-none cursor-pointer p-2 flex items-center justify-center text-[#1a1a1a] transition-all duration-300 w-10 h-10 hover:opacity-60" 
+          (click)="fecharBusca()" 
+          aria-label="Fechar busca">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
@@ -70,36 +110,58 @@
 
     <!-- Botão Menu Mobile -->
     <button 
-      class="menu-toggle" 
+      class="md:hidden flex bg-transparent border-none cursor-pointer p-2 flex-col justify-center gap-1.5 w-10 h-10 z-10 transition-all duration-300 hover:opacity-60" 
       (click)="toggleMenu()" 
       [attr.aria-expanded]="menuAberto"
       aria-label="Menu"
       *ngIf="!buscaAberta">
-      <span class="hamburger" [class.ativo]="menuAberto">
-        <span></span>
-        <span></span>
-        <span></span>
+      <span class="flex flex-col gap-1.5 w-6 h-[18px] relative">
+        <span 
+          class="block h-px w-full bg-[#1a1a1a] transition-all duration-300 origin-center"
+          [class.rotate-45]="menuAberto"
+          [class.translate-y-2]="menuAberto"
+          [class.translate-x-1]="menuAberto"></span>
+        <span 
+          class="block h-px w-full bg-[#1a1a1a] transition-all duration-300"
+          [class.opacity-0]="menuAberto"
+          [class.-translate-x-2.5]="menuAberto"></span>
+        <span 
+          class="block h-px w-full bg-[#1a1a1a] transition-all duration-300 origin-center"
+          [class.-rotate-45]="menuAberto"
+          [class.-translate-y-2]="menuAberto"
+          [class.translate-x-1]="menuAberto"></span>
       </span>
     </button>
   </div>
 
   <!-- Busca Mobile Expandida -->
-  <div class="busca-mobile-expandida" *ngIf="buscaAberta">
-    <form class="busca-form" (submit)="realizarBusca(); $event.preventDefault()">
+  <div 
+    *ngIf="buscaAberta" 
+    class="md:hidden block p-6 bg-white border-t border-gray-200">
+    <form 
+      class="relative flex items-center w-full" 
+      (submit)="realizarBusca(); $event.preventDefault()">
       <input
         type="text"
-        class="busca-input"
+        class="w-full py-3 pr-14 pl-0 border-0 border-b border-gray-200 bg-transparent text-sm font-light text-[#1a1a1a] transition-all duration-300 tracking-wide focus:outline-none focus:border-[#1a1a1a] placeholder:text-gray-400 placeholder:font-light"
         placeholder="Buscar óculos, modelos, estilos..."
         [(ngModel)]="termoBusca"
         name="busca"
         autofocus
       />
-      <button type="submit" class="busca-botao" aria-label="Buscar">
+      <button 
+        type="submit" 
+        class="absolute right-10 bg-transparent border-none cursor-pointer p-2 flex items-center justify-center text-[#1a1a1a] transition-all duration-300 hover:opacity-60" 
+        aria-label="Buscar">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </button>
-      <button type="button" class="busca-fechar" (click)="fecharBusca()" aria-label="Fechar busca">
+      <button 
+        type="button" 
+        class="absolute right-0 bg-transparent border-none cursor-pointer p-2 flex items-center justify-center text-[#1a1a1a] transition-all duration-300 w-10 h-10 hover:opacity-60" 
+        (click)="fecharBusca()" 
+        aria-label="Fechar busca">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
@@ -108,34 +170,67 @@
   </div>
 
   <!-- Menu Mobile -->
-  <nav class="nav-mobile" [class.ativo]="menuAberto">
-    <div class="nav-mobile-overlay" (click)="fecharMenu()"></div>
-    <div class="nav-mobile-content">
-      <ul class="nav-lista-mobile">
-        <li>
-          <a routerLink="/inicio" routerLinkActive="ativo" [routerLinkActiveOptions]="{exact: true}" (click)="fecharMenu()" class="nav-link-mobile">
+  <nav 
+    class="fixed top-0 left-0 right-0 bottom-0 z-[999] pointer-events-none transition-all duration-300"
+    [class.pointer-events-auto]="menuAberto">
+    <div 
+      class="absolute inset-0 bg-black/50 opacity-0 transition-opacity duration-300"
+      [class.opacity-100]="menuAberto"
+      (click)="fecharMenu()"></div>
+    <div 
+      class="absolute top-0 right-0 bottom-0 w-80 max-w-[85vw] bg-white translate-x-full transition-transform duration-300 flex flex-col py-20 px-0 shadow-[-2px_0_20px_rgba(0,0,0,0.1)]"
+      [class.translate-x-0]="menuAberto">
+      <ul class="flex flex-col list-none m-0 p-0 flex-1">
+        <li class="border-b border-gray-100">
+          <a 
+            routerLink="/inicio" 
+            routerLinkActive="ativo" 
+            [routerLinkActiveOptions]="{exact: true}" 
+            (click)="fecharMenu()" 
+            class="block py-5 px-8 text-[#1a1a1a] font-light text-sm tracking-wider uppercase transition-all duration-300 relative pl-8 before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-0 before:bg-[#1a1a1a] before:transition-all before:duration-300 hover:bg-gray-50 hover:pl-10 hover:before:w-0.5 [&.ativo]:bg-gray-50 [&.ativo]:pl-10 [&.ativo]:before:w-0.5">
             Início
           </a>
         </li>
-        <li>
-          <a routerLink="/produtos" routerLinkActive="ativo" (click)="fecharMenu()" class="nav-link-mobile">
+        <li class="border-b border-gray-100">
+          <a 
+            routerLink="/produtos" 
+            routerLinkActive="ativo" 
+            (click)="fecharMenu()" 
+            class="block py-5 px-8 text-[#1a1a1a] font-light text-sm tracking-wider uppercase transition-all duration-300 relative pl-8 before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-0 before:bg-[#1a1a1a] before:transition-all before:duration-300 hover:bg-gray-50 hover:pl-10 hover:before:w-0.5 [&.ativo]:bg-gray-50 [&.ativo]:pl-10 [&.ativo]:before:w-0.5">
             Produtos
           </a>
         </li>
-        <li>
-          <a href="#sobre" (click)="fecharMenu()" class="nav-link-mobile">Sobre</a>
+        <li class="border-b border-gray-100">
+          <a 
+            href="#sobre" 
+            (click)="fecharMenu()" 
+            class="block py-5 px-8 text-[#1a1a1a] font-light text-sm tracking-wider uppercase transition-all duration-300 relative pl-8 before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-0 before:bg-[#1a1a1a] before:transition-all before:duration-300 hover:bg-gray-50 hover:pl-10 hover:before:w-0.5">
+            Sobre
+          </a>
         </li>
-        <li>
-          <a href="#contato" (click)="fecharMenu()" class="nav-link-mobile">Contato</a>
+        <li class="border-b border-gray-100">
+          <a 
+            href="#contato" 
+            (click)="fecharMenu()" 
+            class="block py-5 px-8 text-[#1a1a1a] font-light text-sm tracking-wider uppercase transition-all duration-300 relative pl-8 before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-0 before:bg-[#1a1a1a] before:transition-all before:duration-300 hover:bg-gray-50 hover:pl-10 hover:before:w-0.5">
+            Contato
+          </a>
         </li>
       </ul>
-      <div class="nav-mobile-acoes">
-        <a routerLink="/carrinho" (click)="fecharMenu()" class="nav-mobile-carrinho">
+      <div class="p-8 border-t border-gray-100">
+        <a 
+          routerLink="/carrinho" 
+          (click)="fecharMenu()" 
+          class="flex items-center gap-4 p-4 text-[#1a1a1a] font-light text-sm tracking-wider uppercase transition-all duration-300 relative hover:bg-gray-50">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M3 3H5L5.4 5M7 13H17L21 5H5.4M7 13L5.4 5M7 13L4.7 15.3C4.3 15.7 4.6 16.5 5.1 16.5H17M17 13V17C17 18.1 17.9 19 19 19C20.1 19 21 18.1 21 17V13M9 19.5C9.8 19.5 10.5 20.2 10.5 21C10.5 21.8 9.8 22.5 9 22.5C8.2 22.5 7.5 21.8 7.5 21C7.5 20.2 8.2 19.5 9 19.5ZM20 19.5C20.8 19.5 21.5 20.2 21.5 21C21.5 21.8 20.8 22.5 20 22.5C19.2 22.5 18.5 21.8 18.5 21C18.5 20.2 19.2 19.5 20 19.5Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
-          <span>Carrinho</span>
-          <span class="carrinho-badge-mobile" *ngIf="quantidadeCarrinho > 0">{{ quantidadeCarrinho }}</span>
+          <span class="flex-1">Carrinho</span>
+          <span 
+            *ngIf="quantidadeCarrinho > 0" 
+            class="bg-[#1a1a1a] text-white text-xs font-normal px-2 py-0.5 rounded-xl min-w-6 text-center">
+            {{ quantidadeCarrinho }}
+          </span>
         </a>
       </div>
     </div>
