@@ -23,8 +23,7 @@ interface Colecao {
   selector: 'app-home',
   standalone: true,
   imports: [CommonModule, RouterModule],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+  templateUrl: './home.component.html'
 })
 export class HomeComponent {
   produtosDestaque: ProdutoDestaque[] = [

@@ -4,8 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-carrinho',
   standalone: true,
   imports: [],
-  templateUrl: './carrinho.component.html',
-  styleUrl: './carrinho.component.scss'
+  templateUrl: './carrinho.component.html'
 })
 export class CarrinhoComponent {
   constructor() {}

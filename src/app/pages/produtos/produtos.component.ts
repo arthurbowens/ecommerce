@@ -4,8 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-produtos',
   standalone: true,
   imports: [],
-  templateUrl: './produtos.component.html',
-  styleUrl: './produtos.component.scss'
+  templateUrl: './produtos.component.html'
 })
 export class ProdutosComponent {
   constructor() {}

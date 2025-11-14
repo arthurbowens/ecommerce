@@ -7,8 +7,7 @@ import { FormsModule } from '@angular/forms';
   selector: 'app-header',
   standalone: true,
   imports: [CommonModule, RouterModule, FormsModule],
-  templateUrl: './header.component.html',
-  styleUrl: './header.component.scss'
+  templateUrl: './header.component.html'
 })
 export class HeaderComponent implements OnInit {
   menuAberto = false;
