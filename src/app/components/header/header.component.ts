@@ -15,6 +15,10 @@ export class HeaderComponent implements OnInit {
   termoBusca = '';
   headerScrolled = false;
   quantidadeCarrinho = 0;
+  menuColecoesAberto = false;
+  menuLojaAberto = false;
+  menuGuiasAberto = false;
+  listaDesejosAberta = false;
 
   @HostListener('window:scroll', [])
   onWindowScroll(): void {
@@ -23,7 +27,6 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // Simular quantidade no carrinho (depois virá de um serviço)
     this.quantidadeCarrinho = 0;
   }
 
@@ -39,6 +42,7 @@ export class HeaderComponent implements OnInit {
   fecharMenu(): void {
     this.menuAberto = false;
     document.body.style.overflow = '';
+    this.fecharTodosMenus();
   }
 
   toggleBusca(): void {
@@ -53,7 +57,6 @@ export class HeaderComponent implements OnInit {
 
   realizarBusca(): void {
     if (this.termoBusca.trim()) {
-      // Implementar lógica de busca depois
       console.log('Buscando por:', this.termoBusca);
       this.toggleBusca();
     }
@@ -62,5 +65,29 @@ export class HeaderComponent implements OnInit {
   fecharBusca(): void {
     this.buscaAberta = false;
     this.termoBusca = '';
+  }
+
+  toggleMenuColecoes(): void {
+    this.menuColecoesAberto = !this.menuColecoesAberto;
+    this.menuLojaAberto = false;
+    this.menuGuiasAberto = false;
+  }
+
+  toggleMenuLoja(): void {
+    this.menuLojaAberto = !this.menuLojaAberto;
+    this.menuColecoesAberto = false;
+    this.menuGuiasAberto = false;
+  }
+
+  toggleMenuGuias(): void {
+    this.menuGuiasAberto = !this.menuGuiasAberto;
+    this.menuColecoesAberto = false;
+    this.menuLojaAberto = false;
+  }
+
+  fecharTodosMenus(): void {
+    this.menuColecoesAberto = false;
+    this.menuLojaAberto = false;
+    this.menuGuiasAberto = false;
   }
 }

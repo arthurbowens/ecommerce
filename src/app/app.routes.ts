@@ -9,27 +9,27 @@ export const routes: Routes = [
   {
     path: 'inicio',
     loadComponent: () => import('./pages/home/home.component').then(m => m.HomeComponent),
-    title: 'Início - Jeremi Oculos'
+            title: 'Início - Soe Lunnetes'
   },
   {
     path: 'produtos',
     loadComponent: () => import('./pages/produtos/produtos.component').then(m => m.ProdutosComponent),
-    title: 'Produtos - Jeremi Oculos'
+            title: 'Produtos - Soe Lunnetes'
   },
   {
     path: 'produto/:id',
     loadComponent: () => import('./pages/detalhes-produto/detalhes-produto.component').then(m => m.DetalhesProdutoComponent),
-    title: 'Detalhes do Produto - Jeremi Oculos'
+            title: 'Detalhes do Produto - Soe Lunnetes'
   },
   {
     path: 'carrinho',
     loadComponent: () => import('./pages/carrinho/carrinho.component').then(m => m.CarrinhoComponent),
-    title: 'Carrinho - Jeremi Oculos'
+            title: 'Carrinho - Soe Lunnetes'
   },
   {
     path: 'checkout',
     loadComponent: () => import('./pages/checkout/checkout.component').then(m => m.CheckoutComponent),
-    title: 'Checkout - Jeremi Oculos'
+            title: 'Checkout - Soe Lunnetes'
   },
   {
     path: '**',

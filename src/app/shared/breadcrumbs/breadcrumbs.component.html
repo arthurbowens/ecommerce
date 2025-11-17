@@ -1,0 +1,15 @@
+<nav class="flex items-center gap-2 text-sm text-[#666] py-4" aria-label="Breadcrumb" *ngIf="items.length > 0">
+  <a routerLink="/inicio" class="hover:text-[#1a1a1a] transition-colors">Início</a>
+  <span class="text-[#999]">/</span>
+  <ng-container *ngFor="let item of items; let last = last">
+    <a 
+      *ngIf="!last && item.route" 
+      [routerLink]="item.route" 
+      class="hover:text-[#1a1a1a] transition-colors">
+      {{ item.label }}
+    </a>
+    <span *ngIf="!last && item.route" class="text-[#999]">/</span>
+    <span *ngIf="last" class="text-[#1a1a1a] font-medium">{{ item.label }}</span>
+  </ng-container>
+</nav>
+
