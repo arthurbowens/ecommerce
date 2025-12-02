@@ -62,14 +62,32 @@ export class HomeComponent {
       descricao: 'Estilo retrô com acabamento premium'
     },
     {
-      id: 5,
+      id: 4,
       nome: 'Elegant Silver',
       categoria: 'Óculos de Grau',
       preco: 1399.00,
       imagem: 'https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=800',
       descricao: 'Refinamento em prata com design sofisticado'
+    },
+    {
+      id: 5,
+      nome: 'Bold Black',
+      categoria: 'Óculos de Sol',
+      preco: 1199.00,
+      imagem: 'https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=800',
+      descricao: 'Estilo ousado em preto com lentes espelhadas'
+    },
+    {
+      id: 6,
+      nome: 'Minimalist Clear',
+      categoria: 'Óculos de Grau',
+      preco: 1099.00,
+      imagem: 'https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=800',
+      descricao: 'Design minimalista em acetato transparente'
     }
   ];
+
+  indiceDepoimentoAtual = 0;
 
   depoimentos: Depoimento[] = [
     {
@@ -99,24 +117,24 @@ export class HomeComponent {
   colecoes: Colecao[] = [
     {
       id: 1,
-      titulo: 'Coleção Premium',
-      subtitulo: 'Artesanato excepcional em materiais nobres',
-      imagem: 'https://images.unsplash.com/photo-1556306535-0f09a537f0a3?w=1200',
-      link: '/produtos?colecao=premium'
+      titulo: 'Óculos de Sol',
+      subtitulo: 'Proteção solar com estilo e elegância',
+      imagem: 'https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=1200',
+      link: '/colecoes/oculos-sol'
     },
     {
       id: 2,
-      titulo: 'Design Minimalista',
-      subtitulo: 'Simplicidade e elegância em cada detalhe',
+      titulo: 'Óculos de Grau',
+      subtitulo: 'Funcionalidade e design sofisticado',
       imagem: 'https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=1200',
-      link: '/produtos?colecao=minimalista'
+      link: '/colecoes/oculos-grau'
     },
     {
       id: 3,
       titulo: 'Edição Limitada',
       subtitulo: 'Pecas exclusivas e numeradas',
-      imagem: 'https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=1200',
-      link: '/produtos?colecao=limitada'
+      imagem: 'https://images.unsplash.com/photo-1556306535-0f09a537f0a3?w=1200',
+      link: '/colecoes/edicao-limitada'
     }
   ];
 
@@ -134,5 +152,17 @@ export class HomeComponent {
       alert('Obrigado por se inscrever!');
       this.emailNewsletter = '';
     }
+  }
+
+  depoimentoAnterior(): void {
+    this.indiceDepoimentoAtual = (this.indiceDepoimentoAtual - 1 + this.depoimentos.length) % this.depoimentos.length;
+  }
+
+  proximoDepoimento(): void {
+    this.indiceDepoimentoAtual = (this.indiceDepoimentoAtual + 1) % this.depoimentos.length;
+  }
+
+  irParaDepoimento(index: number): void {
+    this.indiceDepoimentoAtual = index;
   }
 }

@@ -32,6 +32,11 @@ export const routes: Routes = [
             title: 'Checkout - Soe Lunnetes'
   },
   {
+    path: 'colecoes/:tipo',
+    loadComponent: () => import('./pages/colecao/colecao.component').then(m => m.ColecaoComponent),
+            title: 'Coleções - Soe Lunnetes'
+  },
+  {
     path: '**',
     redirectTo: 'inicio'
   }
